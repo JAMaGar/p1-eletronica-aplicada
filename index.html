@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>P1 — Eletrônica Aplicada</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<header class="topo">
+  <div class="marca"><b>Eletrônica Aplicada</b> · P1 on-line <span class="sub">Fatec São Paulo · Refrigeração e Climatização</span></div>
+</header>
+
+<div id="barra" class="barra" hidden>
+  <div class="barra-in">
+    <span id="b-aluno" class="b-aluno"></span>
+    <span class="b-tempo" title="tempo restante">⏱ <b id="b-relogio">--:--</b></span>
+    <span id="b-salvo" class="b-salvo">—</span>
+    <button id="b-enviar" class="btn btn-prim">Enviar prova</button>
+  </div>
+  <div id="b-alerta" class="b-alerta" hidden></div>
+</div>
+
+<main class="conteudo">
+  <div id="msg"></div>
+
+  <!-- 1. entrada -->
+  <section id="tela-entrada" class="cartao estreito" hidden>
+    <h1>Entrar na prova</h1>
+    <p>Use o seu <b>RM</b> e o <b>código de acesso</b> enviado pelo professor.</p>
+    <form id="form-entrada" autocomplete="off">
+      <label>RM <input id="rm" inputmode="text" required maxlength="20" autocapitalize="characters"></label>
+      <label>Código de acesso <input id="codigo" required maxlength="12" autocapitalize="characters" spellcheck="false"></label>
+      <button class="btn btn-prim" type="submit">Entrar</button>
+    </form>
+    <div id="msg-entrada"></div>
+  </section>
+
+  <!-- 2. antes de iniciar -->
+  <section id="tela-antes" class="cartao estreito" hidden>
+    <h1>Olá, <span id="a-nome"></span></h1>
+    <ul class="regras">
+      <li>A prova tem <b>8 questões</b> (10,0 pontos): 5 objetivas (Parte A) e 3 problemas com cálculo (Parte B).</li>
+      <li>Você terá <b>90 minutos</b> a partir do clique em <i>Iniciar prova</i>. O relógio é do servidor: fechar a
+          página <b>não</b> pausa o tempo.</li>
+      <li>As respostas são <b>salvas automaticamente</b> a cada alteração. Se a internet cair ou o navegador fechar,
+          entre de novo com o RM e o código: a prova continua de onde parou.</li>
+      <li>Quando o tempo acabar, a prova é <b>enviada automaticamente</b> com o que estiver salvo.</li>
+      <li>Nos problemas, digite o resultado <b>na unidade indicada</b> ao lado do campo e escreva o desenvolvimento
+          (fórmulas e contas) no campo de texto: ele é lido pelo professor.</li>
+      <li>Depois de enviar, não é possível alterar as respostas.</li>
+    </ul>
+    <div id="a-situacao" class="situacao"></div>
+    <button id="btn-iniciar" class="btn btn-prim btn-grande" hidden>Iniciar prova (o tempo começa agora)</button>
+    <p class="nota-peq"><a href="#" id="sair1">Não é você? Sair</a></p>
+  </section>
+
+  <!-- 3. prova -->
+  <section id="tela-prova" hidden>
+    <div id="questoes"></div>
+    <div class="cartao fim">
+      <p>Confira as respostas. O envio é definitivo.</p>
+      <button id="btn-enviar-fim" class="btn btn-prim btn-grande">Enviar prova</button>
+    </div>
+  </section>
+
+  <!-- 4. recibo / resultado -->
+  <section id="tela-recibo" class="cartao" hidden>
+    <h1>Prova recebida ✓</h1>
+    <div id="r-dados"></div>
+    <div id="r-resultado"></div>
+    <p class="nota-peq"><button id="btn-atualizar" class="btn">Atualizar</button> <a href="#" id="sair2">Sair</a></p>
+  </section>
+</main>
+
+<div id="dlg" class="dlg" hidden>
+  <div class="dlg-caixa">
+    <p id="dlg-txt"></p>
+    <div class="dlg-bot"><button id="dlg-nao" class="btn">Voltar</button> <button id="dlg-sim" class="btn btn-prim">Confirmar</button></div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/comum.js"></script>
+<script src="js/prova.js"></script>
+</body>
+</html>

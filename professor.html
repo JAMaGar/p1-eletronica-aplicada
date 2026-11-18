@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel do professor — P1 Eletrônica Aplicada</title>
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="prof">
+<header class="topo">
+  <div class="marca"><b>Painel do professor</b> · P1 on-line de Eletrônica Aplicada</div>
+</header>
+<main class="conteudo largo">
+  <div id="msg"></div>
+
+  <section id="p-entrada" class="cartao estreito">
+    <h1>Entrar no painel</h1>
+    <p>A chave do professor está na aba <b>Leia-me</b> da planilha (célula A2).</p>
+    <form id="form-chave" autocomplete="off">
+      <label>Chave do professor <input id="chave" type="password" required spellcheck="false"></label>
+      <button class="btn btn-prim" type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <section id="p-painel" hidden>
+    <div class="cartao controles">
+      <label class="chave-liga"><input type="checkbox" id="cfg-aberta"> <span><b>Prova aberta</b> — alunos podem iniciar</span></label>
+      <label class="chave-liga"><input type="checkbox" id="cfg-notas"> <span><b>Notas liberadas</b> — quem enviou vê nota e gabarito</span></label>
+      <span class="sep"></span>
+      <button id="btn-recarregar" class="btn">Atualizar</button>
+      <button id="btn-csv" class="btn">Baixar notas (CSV)</button>
+      <a id="lnk-planilha" class="btn" target="_blank" rel="noopener">Abrir planilha</a>
+      <span id="p-hora" class="nota-peq"></span>
+    </div>
+
+    <div class="cartao">
+      <h2>Alunos</h2>
+      <div class="tab-rolagem"><table id="tab-alunos" class="tab"></table></div>
+      <form id="form-aluno" class="linha-form" autocomplete="off">
+        <b>Cadastrar / alterar:</b>
+        <input id="n-rm" placeholder="RM" maxlength="20" required>
+        <input id="n-nome" placeholder="Nome completo" maxlength="80" required>
+        <select id="n-versao"><option value="A">Prova A</option><option value="B">Prova B</option></select>
+        <button class="btn btn-prim" type="submit">Salvar aluno</button>
+      </form>
+      <p class="nota-peq">O código de acesso é gerado ao cadastrar. Envie a cada aluno, em particular, o link da prova, o RM e o código.</p>
+    </div>
+
+    <div id="detalhe" class="cartao" hidden></div>
+
+    <div class="cartao">
+      <h2>Conferir as provas</h2>
+      <p><button class="btn" data-ver="A">Ver prova A com gabarito</button> <button class="btn" data-ver="B">Ver prova B com gabarito</button></p>
+      <div id="previa"></div>
+    </div>
+  </section>
+</main>
+
+<div id="dlg" class="dlg" hidden>
+  <div class="dlg-caixa">
+    <p id="dlg-txt"></p>
+    <div id="dlg-campo"></div>
+    <div class="dlg-bot"><button id="dlg-nao" class="btn">Cancelar</button> <button id="dlg-sim" class="btn btn-prim">Confirmar</button></div>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/comum.js"></script>
+<script src="js/professor.js"></script>
+</body>
+</html>
